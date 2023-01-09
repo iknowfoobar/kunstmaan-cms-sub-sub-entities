@@ -1,0 +1,61 @@
+<section class="section two-col-image-text-pp" data-header-modifier="black">
+    <div class="two-col-image-text-pp__container container animate-on-scroll">
+        {% if resource.subtitle is not empty %}
+            <h4 class="two-col-image-text-pp__subtitle">
+                {{ resource.subtitle }}
+            </h4>
+        {% endif %}
+
+        {% if resource.title is not empty %}
+            <h2 class="two-col-image-text-pp__title">
+                {{ resource.title }}
+            </h2>
+        {% endif %}
+
+        {% if resource.content is not empty %}
+            <div class="two-col-image-text-pp__content">
+                {{ resource.content }}
+            </div>
+        {% endif %}
+    </div>
+
+    {% if resource.twoColImageTexts is not empty %}
+        <div class="two-col-image-text-pp__items">
+            {% for twoColImageText in resource.twoColImageTexts %}
+                <div class="two-col-image-text-item">
+                    <div class="two-col-image-text-item__container container container--flex animate-on-scroll">
+                        <div class="two-col-image-text-item__column two-col-image-text-item__column--left">
+                            {% if twoColImageText.images is not empty %}
+                                {% for image in twoColImageText.images %}
+                                    {% if image.image is not empty %}
+                                        {{ include('Components/image.html.twig', {
+                                            'src': image.image.url,
+                                            'alt': image.imageAltText,
+                                            'caption': image.caption,
+                                            'class': 'two-col-image-text-item__image',
+                                            'sizes': '(min-width: 1020px) 50vw, 100vw'
+                                        }) }}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        <div class="two-col-image-text-item__column two-col-image-text-item__column--right">
+                            {% if twoColImageText.title is not empty %}
+                                <h3 class="two-col-image-text-pp__title">
+                                    {{ twoColImageText.title }}
+                                </h3>
+                            {% endif %}
+
+                            {% if twoColImageText.content is not empty %}
+                                <div class="two-col-image-text-pp__content">
+                                    {{ twoColImageText.content }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</section>

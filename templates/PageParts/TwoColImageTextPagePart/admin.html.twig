@@ -1,0 +1,23 @@
+
+{% if resource.title is not empty %}<p>{{ resource.title }}</p>{% endif %}
+{% if resource.subtitle is not empty %}<p>{{ resource.subtitle }}</p>{% endif %}
+{% if resource.content is not empty %}<p>{{ resource.content }}</p>{% endif %}
+{% if resource.twoColImageTexts is not empty %}
+  <ul>
+    {% for twoColImageText in resource.twoColImageTexts %}
+      <li>
+        {% if twoColImageText.images is not empty %}
+          <ul>
+            {% for image in twoColImageText.images %}
+              {% if image.image %}<img src="{{ asset(image.image.url | imagine_filter('image_small_jpg')) }}" />{% endif %}
+              {% if image.imageAltText is not empty %}<p>{{ image.imageAltText }}</p>{% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        {% if twoColImageText.title is not empty %}<p>{{ twoColImageText.title }}</p>{% endif %}
+        {% if twoColImageText.content is not empty %}<p>{{ twoColImageText.content }}</p>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   Extra Stylesheet for admin
+   ========================================================================== */
+
+/* Config (necessary only)
+   ========================================================================== */
+@import "~scssRootDir/config/general/colors";
+@import "~scssRootDir/config/general/typography/fonts";
+@import "~scssRootDir/config/general/typography/bodycopy";
+@import "~scssRootDir/config/general/sizes";
+@import "~scssRootDir/config/general/paths";
+
+/* Vendors - only vars!
+   ========================================================================== */
+@import "~scssRootDir/config/vendors/bootstrap-vars";
+
+/* General
+   ========================================================================== */
+@import "~scssRootDir/general/typography/iconfont";
+
+/* Helpers
+   ========================================================================== */
+@import "~scssRootDir/helpers/helpers";
+
+
+/* Use these styling only in the pagepart previews
+   ========================================================================== */
+.page-template__region .admin-region,
+.pp__view .pp__view__block:first-child {
+    /* stylelint-disable no-invalid-position-at-import-rule */
+    /* General
+       ========================================================================== */
+    @import "~scssRootDir/general/typography/bodycopy";
+
+    /* Blocks
+       ========================================================================== */
+    @import "~scssRootDir/components/blocks/img";
+    @import "~scssRootDir/components/blocks/hr";
+    @import "~scssRootDir/components/blocks/lists";
+    @import "~scssRootDir/components/blocks/links";
+    @import "~scssRootDir/components/blocks/buttons";
+    @import "~scssRootDir/components/blocks/tables";
+
+    /* Structures
+       ========================================================================== */
+
+    /* Pageparts
+       ========================================================================== */
+    @import "~scssRootDir/components/pageparts/button-pp";
+    @import "~scssRootDir/components/pageparts/download-pp";
+    @import "~scssRootDir/components/pageparts/header-pp";
+    @import "~scssRootDir/components/pageparts/image-pp";
+    @import "~scssRootDir/components/pageparts/introtext-pp";
+    @import "~scssRootDir/components/pageparts/link-pp";
+    @import "~scssRootDir/components/pageparts/text-pp";
+    @import "~scssRootDir/components/pageparts/totop-pp";
+    @import "~scssRootDir/components/pageparts/video-pp";
+    /* stylelint-enable no-invalid-position-at-import-rule */
+}
